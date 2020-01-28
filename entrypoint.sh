@@ -6,7 +6,7 @@ cp -r /project-tests/* .
 # npm install
 # node_modules/.bin/cypress run
 ls -lah
-ls -lah ypress/reports
+ls -lah cypress/reports
 node /evaluator.js cypress/reports/mochawesome.json requirements_mapping.json result.json
 
 if [ $? != 0 ]; then
