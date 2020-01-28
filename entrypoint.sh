@@ -13,4 +13,5 @@ if [ $? != 0 ]; then
 fi
 
 echo "::set-output name=pr-number::$(echo "$GITHUB_REF" | awk -F / '{print $3}')"
+pwd
 echo "::set-output name=result::`cat result.json | base64 -w 0`"
