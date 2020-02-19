@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 TEST_REPOSITORY_BRANCH=${TEST_REPOSITORY_BRANCH:-master}
 
