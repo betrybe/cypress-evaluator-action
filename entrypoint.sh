@@ -9,7 +9,7 @@ cp -r /project-tests/* .
 npm install
 node_modules/.bin/cypress run
 ls
-node /evaluator.js cypress/reports/mochawesome.json requirements_mapping.json result.json
+node /evaluator.js cypress/reports/mochawesome.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
   echo "Execution error"
