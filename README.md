@@ -19,6 +19,12 @@ GitHub repository that store the tests
 
 GitHub specific branch
 
+### `npm-start`
+
+**Default: true**
+
+Run npm start and waits to http://localhost:3000 before testing
+
 ## Outputs
 
 ### `result`

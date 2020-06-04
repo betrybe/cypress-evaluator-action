@@ -3,13 +3,18 @@ set -x
 
 REPOSITORY_NAME=$1
 REPOSITORY_BRANCH=$2
+run_npm_start=$3
 
 git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /project-tests
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
-npm install -g wait-on
-npm start & wait-on http://localhost:3000
+
+if $run_npm_start ; then
+  npm install -g wait-on
+  npm start & wait-on http://localhost:3000
+fi
+
 node_modules/.bin/cypress run
 ls
 node /evaluator.js cypress/reports/mochawesome.json .trybe/requirements.json result.json
