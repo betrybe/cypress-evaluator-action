@@ -7,10 +7,10 @@ inputs:
   repository-test-branch:
     description: 'GitHub specific branch'
     default: 'master'
-    required: false
+    required: true
   npm-start:
     description: 'Run npm start and waits to http://localhost:3000 before testing'
-    default: true
+    default: false
 outputs:
   result:
     description: 'Cypress unit tests JSON results in base64 format.'
