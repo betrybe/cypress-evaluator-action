@@ -21,7 +21,7 @@ GitHub specific branch
 
 ### `npm-start`
 
-**Default: true**
+**Default: false**
 
 Run npm start and waits to http://localhost:3000 before testing
 

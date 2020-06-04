@@ -7,7 +7,7 @@ inputs:
   repository-test-branch:
     description: 'GitHub specific branch'
     default: 'master'
-    required: true
+    required: false
   npm-start:
     description: 'Run npm start and waits to http://localhost:3000 before testing'
     default: true
