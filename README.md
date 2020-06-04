@@ -5,6 +5,26 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
 
 ## Inputs
 
+### `repository-test-name`
+
+**Required**
+
+GitHub repository that store the tests
+
+### `repository-test-branch`
+
+**Required**
+
+**Default: "master"**
+
+GitHub specific branch
+
+### `npm-start`
+
+**Default: false**
+
+Run npm start and waits to http://localhost:3000 before testing
+
 ## Outputs
 
 ### `result`
