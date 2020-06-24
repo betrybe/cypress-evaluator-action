@@ -18,7 +18,7 @@ fi
 node_modules/.bin/cypress run
 ls
 node_modules/.bin/mochawesome-merge cypress/reports/*.json > output.json
-cat output.json
+ls
 node /evaluator.js output.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
