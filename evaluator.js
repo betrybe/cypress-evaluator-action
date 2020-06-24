@@ -17,25 +17,21 @@ const leafSuites = (suites, leaves = []) => {
       return;
     }
 
-    leaves.push(leafSuites(suite.suites, leaves));
+    leafSuites(suite.suites, leaves);
   });
 
   return leaves.flat();
 };
 
 const evaluationsByRequirements =
-  leafSuites(testData.results).map((result) => (
-    result.suites.map(({ title, tests, passes }) => ({
-      title,
-      tests,
-      passes,
-    }))
-  )).flat()
-    .reduce((acc, { title, tests, passes }) => {
+  leafSuites(testData.results).reduce(
+    (acc, { title, tests, passes }) => {
       const allUnitTestsPassed = tests.length === passes.length;
       acc[title] = allUnitTestsPassed;
       return acc;
-    }, {});
+    },
+    {}
+  );
 
 const requirementsFile = fs.readFileSync(process.argv[3]);
 const { requirements } = JSON.parse(requirementsFile);
