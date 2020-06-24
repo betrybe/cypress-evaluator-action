@@ -10,8 +10,21 @@ const githubRepositoryName = process.env.GITHUB_REPOSITORY || 'no_repository';
 const evaluationFileContent = fs.readFileSync(process.argv[2]);
 const testData = JSON.parse(evaluationFileContent);
 
+const leafSuites = (suites, leaves = []) => {
+  suites.forEach((suite) => {
+    if (suite.suites.length === 0) {
+      leaves.push(suite);
+      return;
+    }
+
+    leaves.push(leafSuites(suite.suites, leaves));
+  });
+
+  return leaves.flat();
+};
+
 const evaluationsByRequirements =
-  testData.results.map((result) => (
+  leafSuites(testData.results).map((result) => (
     result.suites.map(({ title, tests, passes }) => ({
       title,
       tests,
