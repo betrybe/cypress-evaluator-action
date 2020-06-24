@@ -10,19 +10,28 @@ const githubRepositoryName = process.env.GITHUB_REPOSITORY || 'no_repository';
 const evaluationFileContent = fs.readFileSync(process.argv[2]);
 const testData = JSON.parse(evaluationFileContent);
 
+const leafSuites = (suites, leaves = []) => {
+  suites.forEach((suite) => {
+    if (suite.suites.length === 0) {
+      leaves.push(suite);
+      return;
+    }
+
+    leafSuites(suite.suites, leaves);
+  });
+
+  return leaves.flat();
+};
+
 const evaluationsByRequirements =
-  testData.results.map((result) => (
-    result.suites.map(({ title, tests, passes }) => ({
-      title,
-      tests,
-      passes,
-    }))
-  )).flat()
-    .reduce((acc, { title, tests, passes }) => {
+  leafSuites(testData.results).reduce(
+    (acc, { title, tests, passes }) => {
       const allUnitTestsPassed = tests.length === passes.length;
       acc[title] = allUnitTestsPassed;
       return acc;
-    }, {});
+    },
+    {}
+  );
 
 const requirementsFile = fs.readFileSync(process.argv[3]);
 const { requirements } = JSON.parse(requirementsFile);
