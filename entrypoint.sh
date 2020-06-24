@@ -17,7 +17,9 @@ fi
 
 node_modules/.bin/cypress run
 ls
-node /evaluator.js cypress/reports/mochawesome.json .trybe/requirements.json result.json
+node_modules/.bin/mochawesome-merge cypress/reports/*.json > output.json
+ls
+node /evaluator.js output.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
   echo "Execution error"
