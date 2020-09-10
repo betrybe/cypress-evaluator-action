@@ -15,7 +15,7 @@ if $run_npm_start ; then
   npm start & wait-on http://localhost:3000
 fi
 
-node_modules/.bin/cypress run
+node_modules/.bin/cypress run --headless
 ls
 node_modules/.bin/mochawesome-merge cypress/reports/*.json > output.json
 ls
