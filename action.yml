@@ -11,6 +11,12 @@ inputs:
   npm-start:
     description: 'Run npm start and waits to http://localhost:3000 before testing'
     default: false
+  headless:
+    description: 'Hide the browser instead of running headed at Cypress running'
+    default: true
+  browser:
+    description: 'Define what browser Cypress must run'
+    default: 'chrome'
 outputs:
   result:
     description: 'Cypress unit tests JSON results in base64 format.'
@@ -23,3 +29,5 @@ runs:
     - ${{ inputs.repository-test-name }}
     - ${{ inputs.repository-test-branch }}
     - ${{ inputs.npm-start }}
+    - ${{ inputs.headless }}
+    - ${{ inputs.browser }}
