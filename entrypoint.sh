@@ -22,6 +22,7 @@ if $CYPRESS_HEADLESS ; then
   headless_flag="--headless"
 fi
 
+node_modules/.bin/cypress install
 node_modules/.bin/cypress run "$headless_flag" --browser "$CYPRESS_BROWSER"
 ls
 node_modules/.bin/mochawesome-merge cypress/reports/*.json > output.json
