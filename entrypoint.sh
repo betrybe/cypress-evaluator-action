@@ -3,19 +3,27 @@ set -x
 
 REPOSITORY_NAME=$1
 REPOSITORY_BRANCH=$2
-run_npm_start=$3
+RUN_NPM_START=$3
+CYPRESS_HEADLESS=$4
+CYPRESS_BROWSER=$5
 
 git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /project-tests
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
 
-if $run_npm_start ; then
+if $RUN_NPM_START ; then
   npm install -g wait-on
   npm start & wait-on http://localhost:3000
 fi
 
-node_modules/.bin/cypress run
+headless_flag=''
+if $CYPRESS_HEADLESS ; then
+  headless_flag="--headless"
+fi
+
+node_modules/.bin/cypress install
+node_modules/.bin/cypress run "$headless_flag" --browser "$CYPRESS_BROWSER"
 ls
 node_modules/.bin/mochawesome-merge cypress/reports/*.json > output.json
 ls
