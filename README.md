@@ -25,6 +25,18 @@ GitHub specific branch
 
 Run npm start and waits to http://localhost:3000 before testing
 
+### `headless`
+
+**Default: true**
+
+Hide the browser instead of running headed at Cypress running
+
+### `browser`
+
+**Default: "chrome"**
+
+Define what browser Cypress must run
+
 ## Outputs
 
 ### `result`
@@ -53,16 +65,51 @@ uses: betrybe/cypress-evaluator-action
 
 ## Project contraints
 
-The project that want to use this action should keep a file called `requirements_mapping.json` in root folder with this structure:
+The project that want to use this action should implement unit tests grouping them using `describe` statements.
+Each `describe` statement will be mapped to a requirement.
+
+Example:
+
+```javascript
+describe('requirement #1' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+
+describe('requirement #2' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+
+describe('requirement #3' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+```
+
+Project repository must create a file called `requirements.json` inside `.trybe` folder.
+
+This file should have the following structure:
 
 ```json
 {
-  "test-name-1": 17,
-  "unit test 2 name": 36,
+  "requirements": [{
+    "description": "requirement #1",
+    "bonus": false
+  }, {
+    "description": "requirement #2",
+    "bonus": true
+  }, {
+    "description": "requirement #3",
+    "bonus": false
+  }]
 }
 ```
 
-where `"test-name-1"` and `"unit test 2 name"` are the tests' name and `17` and `36` are the requirements identifiers.
+where the `"requirement #1"`, `"requirement #2"` and `"requirement #3"` are the requirements and describes names.
 
 ## Learn about GitHub Actions
 
