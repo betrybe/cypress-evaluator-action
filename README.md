@@ -63,10 +63,10 @@ uses: betrybe/cypress-evaluator-action
     param: ${{ steps.evaluator.outputs.result }}
 ```
 
-## Project contraints
+## Project constraints
 
-The project that want to use this action should implement unit tests grouping them using `describe` statements.
-Each `describe` statement will be mapped to a requirement.
+The project that wants to use this action should implement unit tests grouping them using `describe` statements.
+Each `describe` statement **will be mapped to a requirement**. 
 
 Example:
 
