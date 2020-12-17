@@ -5,20 +5,6 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
 
 ## Inputs
 
-### `repository-test-name`
-
-**Required**
-
-GitHub repository that store the tests
-
-### `repository-test-branch`
-
-**Required**
-
-**Default: "master"**
-
-GitHub specific branch
-
 ### `npm-start`
 
 **Default: false**
@@ -43,20 +29,16 @@ Define what browser Cypress must run
 
 Cypress unit tests JSON results in base64 format.
 
-### `pr-number`
-
-Pull Request number that trigger build.
-
 ## Simple usage example
 ```yml
-uses: betrybe/cypress-evaluator-action
+uses: betrybe/cypress-evaluator-action@v6
 ```
 
 ## How to get result output
 ```yml
 - name: Cypress evaluator
   id: evaluator
-  uses: betrybe/cypress-evaluator-action
+  uses: betrybe/cypress-evaluator-action@v6
 - name: Next step
   uses: another-github-action
   with:
@@ -66,7 +48,7 @@ uses: betrybe/cypress-evaluator-action
 ## Project constraints
 
 The project that wants to use this action should implement unit tests grouping them using `describe` statements.
-Each `describe` statement **will be mapped to a requirement**. 
+Each `describe` statement **will be mapped to a requirement**.
 
 Example:
 
