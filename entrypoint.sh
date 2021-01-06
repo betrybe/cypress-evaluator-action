@@ -1,15 +1,10 @@
 #!/bin/bash
 set -x
 
-REPOSITORY_NAME=$1
-REPOSITORY_BRANCH=$2
-RUN_NPM_START=$3
-CYPRESS_HEADLESS=$4
-CYPRESS_BROWSER=$5
+RUN_NPM_START=$1
+CYPRESS_HEADLESS=$2
+CYPRESS_BROWSER=$3
 
-git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /project-tests
-rm -rf /project-tests/.git
-cp -r /project-tests/* .
 npm install
 
 if $RUN_NPM_START ; then
@@ -34,5 +29,4 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-echo "::set-output name=pr-number::$(echo "$GITHUB_REF" | awk -F / '{print $3}')"
 echo "::set-output name=result::`cat result.json | base64 -w 0`"
