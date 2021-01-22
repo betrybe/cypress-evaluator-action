@@ -23,6 +23,12 @@ Hide the browser instead of running headed at Cypress running
 
 Define what browser Cypress must run
 
+### `pr_author_username:
+
+**Required**
+
+Pull Request author username
+
 ## Outputs
 
 ### `result`
