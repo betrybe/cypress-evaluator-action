@@ -5,46 +5,50 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
 
 ## Inputs
 
-### `npm-start`
+- `npm-start`
 
-**Default: false**
+  **Default: false**
 
-Run npm start and waits to http://localhost:3000 before testing
+  Run npm start and waits to http://localhost:3000 before testing.
 
-### `headless`
+- `headless`
 
-**Default: true**
+  **Default: true**
 
-Hide the browser instead of running headed at Cypress running
+  Hide the browser instead of running headed at Cypress running.
 
-### `browser`
+- `browser`
 
-**Default: "chrome"**
+  **Default: "chrome"**
 
-Define what browser Cypress must run
+  Define what browser Cypress must run.
 
-### `pr_author_username:
+- `pr_author_username`
 
-**Required**
+  **Required**
 
-Pull Request author username
+  Pull Request author username.
 
 ## Outputs
 
-### `result`
+- `result`
 
-Cypress unit tests JSON results in base64 format.
+  Cypress unit tests JSON results in base64 format.
 
 ## Simple usage example
 ```yml
-uses: betrybe/cypress-evaluator-action@v6
+uses: betrybe/cypress-evaluator-action@v7
+with:
+  pr_author_username: ${{ github.event.inputs.pr_author_username }}
 ```
 
 ## How to get result output
 ```yml
 - name: Cypress evaluator
   id: evaluator
-  uses: betrybe/cypress-evaluator-action@v6
+  uses: betrybe/cypress-evaluator-action@v7
+  with:
+    pr_author_username: ${{ github.event.inputs.pr_author_username }}
 - name: Next step
   uses: another-github-action
   with:
