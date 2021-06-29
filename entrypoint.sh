@@ -11,6 +11,7 @@ git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /p
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
+npx browserslist@latest --update-db
 
 if $RUN_NPM_START ; then
   npm install -g wait-on
