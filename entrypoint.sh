@@ -8,8 +8,8 @@ CYPRESS_BROWSER=$3
 npm install
 
 if $RUN_NPM_START ; then
-  npm install -g wait-on
-  npm start & wait-on http://localhost:3000
+  npm start & # Open server in background
+  npx wait-on -t 300000 $wait_for_url # wait for server until timeout
 fi
 
 headless_flag=''
