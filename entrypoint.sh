@@ -14,7 +14,7 @@ fi
 
 headless_flag=''
 if $CYPRESS_HEADLESS ; then
-  headless_flag="--headless"
+  headless_flag="--headed"
 fi
 
 node_modules/.bin/cypress install
