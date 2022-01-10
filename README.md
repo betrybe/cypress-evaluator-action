@@ -3,6 +3,8 @@ Cypress evaluator action for Tryber projects
 
 This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/package/cypress) library.
 
+**WARNING:** the image docker version specified in the `action.yml` must be the same as the last evaluator release version
+
 ## Inputs
 
 - `npm-start`
