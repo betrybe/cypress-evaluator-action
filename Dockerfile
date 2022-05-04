@@ -1,4 +1,4 @@
-FROM cypress/browsers:node12.14.0-chrome79-ff71
+FROM cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
 
 COPY entrypoint.sh /entrypoint.sh
 COPY evaluator.js /evaluator.js
