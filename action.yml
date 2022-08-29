@@ -18,7 +18,7 @@ outputs:
     description: 'Cypress unit tests JSON results in base64 format.'
 runs:
   using: 'docker'
-  image: 'docker://betrybe/cypress-evaluator-action:v8'
+  image: 'docker://betrybe/cypress-evaluator-action:v8.1'
   args:
     - ${{ inputs.npm-start }}
     - ${{ inputs.headless }}
