@@ -5,6 +5,8 @@ RUN_NPM_START=$1
 CYPRESS_HEADLESS=$2
 CYPRESS_BROWSER=$3
 
+export CY_CLI=true
+
 npm install
 
 if $RUN_NPM_START ; then
