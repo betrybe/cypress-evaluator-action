@@ -39,7 +39,7 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
 
 ## Simple usage example
 ```yml
-uses: betrybe/cypress-evaluator-action@v7
+uses: betrybe/cypress-evaluator-action@v8.2
 with:
   pr_author_username: ${{ github.event.inputs.pr_author_username }}
 ```
@@ -48,7 +48,7 @@ with:
 ```yml
 - name: Cypress evaluator
   id: evaluator
-  uses: betrybe/cypress-evaluator-action@v7
+  uses: betrybe/cypress-evaluator-action@v8.2
   with:
     pr_author_username: ${{ github.event.inputs.pr_author_username }}
 - name: Next step
