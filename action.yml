@@ -1,24 +1,24 @@
-name: 'Cypress evaluator'
-description: 'Cypress evaluator action for Tryber projects'
+name: "Cypress evaluator"
+description: "Cypress evaluator action for Tryber projects"
 inputs:
   npm-start:
-    description: 'Run npm start and waits to http://localhost:3000 before testing'
+    description: "Run npm start and waits to http://localhost:3000 before testing"
     default: false
   headless:
-    description: 'Hide the browser instead of running headed at Cypress running'
+    description: "Hide the browser instead of running headed at Cypress running"
     default: true
   browser:
-    description: 'Define what browser Cypress must run'
-    default: 'chrome'
+    description: "Define what browser Cypress must run"
+    default: "chrome"
   pr_author_username:
-    description: 'Pull Request author username'
+    description: "Pull Request author username"
     required: true
 outputs:
   result:
-    description: 'Cypress unit tests JSON results in base64 format.'
+    description: "Cypress unit tests JSON results in base64 format."
 runs:
-  using: 'docker'
-  image: 'docker://betrybe/cypress-evaluator-action:v8.1'
+  using: "docker"
+  image: "docker://betrybe/cypress-evaluator-action:v8.2"
   args:
     - ${{ inputs.npm-start }}
     - ${{ inputs.headless }}
