@@ -1,4 +1,5 @@
 # cypress-evaluator-action
+
 Cypress evaluator action for Tryber projects
 
 This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/package/cypress) library.
@@ -11,7 +12,7 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
 
   **Default: false**
 
-  Run npm start and waits to http://localhost:3000 before testing.
+  Run npm start and waits to <http://localhost:3000> before testing.
 
 - `headless`
 
@@ -38,17 +39,19 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
   Cypress unit tests JSON results in base64 format.
 
 ## Simple usage example
+
 ```yml
-uses: betrybe/cypress-evaluator-action@v7
+uses: betrybe/cypress-evaluator-action@v8.2
 with:
   pr_author_username: ${{ github.event.inputs.pr_author_username }}
 ```
 
 ## How to get result output
+
 ```yml
 - name: Cypress evaluator
   id: evaluator
-  uses: betrybe/cypress-evaluator-action@v7
+  uses: betrybe/cypress-evaluator-action@v8.2
   with:
     pr_author_username: ${{ github.event.inputs.pr_author_username }}
 - name: Next step
@@ -107,4 +110,4 @@ where the `"requirement #1"`, `"requirement #2"` and `"requirement #3"` are the 
 
 ## Learn about GitHub Actions
 
-- https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-a-docker-container-action
+- <https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-a-docker-container-action>
