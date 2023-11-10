@@ -2,9 +2,9 @@
 set -x
 
 RUN_NPM_START=$1
-CYPRESS_HEADLESS=$2
-CYPRESS_BROWSER=$3
-RUN_JSON_SERVE=$4
+CYPRESS_HEADLESS_T=$2
+CYPRESS_BROWSER_T=$3
+RUN_JSON_SERVER=$4
 JSON_SERVER_PORT=$5
 JSON_SERVER_DB=$6
 
@@ -17,18 +17,21 @@ if $RUN_NPM_START ; then
   npx wait-on -t 300000 $wait_for_url # wait for server until timeout
 fi
 
-if $RUN_JSON_SERVE ; then
-  npx json-server --watch $JSON_SERVER_DB --port $JSON_SERVER_PORT &
+npx json-server --watch json-server/db.json --port 3050
+
+
+if $RUN_JSON_SERVER ; then
+  npx json-server --watch json-server/$JSON_SERVER_DB --port $JSON_SERVER_PORT &
   npx wait-on -t 300000 http://localhost:$JSON_SERVER_PORT
 fi
 
 headless_flag=''
-if $CYPRESS_HEADLESS ; then
+if $CYPRESS_HEADLESS_T ; then
   headless_flag="--headless"
 fi
 
 node_modules/.bin/cypress install
-node_modules/.bin/cypress run "$headless_flag" --browser "$CYPRESS_BROWSER"
+node_modules/.bin/cypress run "$headless_flag" --browser "$CYPRESS_BROWSER_T"
 ls
 node_modules/.bin/mochawesome-merge cypress/reports/*.json > output.json
 ls
