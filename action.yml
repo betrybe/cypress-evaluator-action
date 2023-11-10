@@ -13,6 +13,16 @@ inputs:
   pr_author_username:
     description: "Pull Request author username"
     required: true
+  json-server:
+    description: "Initiate json-server start script before testing"
+    default: false
+  json-server-port:
+    description: "Define json-server port"
+    default: "3050"
+  json-server-db:
+    description: "Define json-server db file"
+    default: "db.json"
+
 outputs:
   result:
     description: "Cypress unit tests JSON results in base64 format."
@@ -23,3 +33,7 @@ runs:
     - ${{ inputs.npm-start }}
     - ${{ inputs.headless }}
     - ${{ inputs.browser }}
+    - ${{ inputs.json-server }}
+    - ${{ inputs.json-server-port }}
+    - ${{ inputs.json-server-db }}
+

@@ -32,6 +32,25 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
 
   Pull Request author username.
 
+- `json-server`
+
+  **Default: false**
+
+    Initiate json-server start script before testing.
+
+- `json-server-port`
+
+  **Default: 3050**
+
+    Define json-server port.
+
+- `json-server-db`
+
+  **Default: db.json**
+
+    Define json-server db file.
+
+
 ## Outputs
 
 - `result`
