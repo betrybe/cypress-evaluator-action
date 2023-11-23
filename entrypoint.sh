@@ -4,7 +4,7 @@ set -x
 RUN_NPM_START=$1
 CYPRESS_HEADLESS=$2
 CYPRESS_BROWSER=$3
-RUN_JSON_SERVE=$4
+RUN_JSON_SERVER=$4
 JSON_SERVER_PORT=$5
 JSON_SERVER_DB=$6
 
@@ -17,7 +17,7 @@ if $RUN_NPM_START ; then
   npx wait-on -t 300000 $wait_for_url # wait for server until timeout
 fi
 
-if $RUN_JSON_SERVE ; then
+if $RUN_JSON_SERVER ; then
   npx json-server --watch $JSON_SERVER_DB --port $JSON_SERVER_PORT &
   npx wait-on -t 300000 http://localhost:$JSON_SERVER_PORT
 fi
