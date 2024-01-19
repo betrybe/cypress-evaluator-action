@@ -21,7 +21,10 @@ inputs:
     default: "3050"
   json-server-db:
     description: "Define json-server db file"
-    default: "db.json"
+    default: "server/db.json"
+  json-server-routes:
+    description: "Define json-server route file"
+    default: "server/routes.json"
 
 outputs:
   result:
@@ -36,3 +39,4 @@ runs:
     - ${{ inputs.json-server }}
     - ${{ inputs.json-server-port }}
     - ${{ inputs.json-server-db }}
+    - ${{ inputs.json-server-routes }}
