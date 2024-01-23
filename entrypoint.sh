@@ -19,7 +19,7 @@ if $RUN_NPM_START ; then
 fi
 
 if $RUN_JSON_SERVER ; then
-  npx json-server-auth --watch $JSON_SERVER_DB -r $JSON_SERVER_ROUTES --port $JSON_SERVER_PORT &
+  npx json-server-auth --watch $JSON_SERVER_DB -r $JSON_SERVER_ROUTES --port $JSON_SERVER_PORT --delay 1500 &
   npx wait-on -t 300000 http://localhost:$JSON_SERVER_PORT
 fi
 
