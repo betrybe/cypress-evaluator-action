@@ -7,6 +7,7 @@ CYPRESS_BROWSER=$3
 RUN_JSON_SERVER=$4
 JSON_SERVER_PORT=$5
 JSON_SERVER_DB=$6
+JSON_SERVER_ROUTES=$7
 
 export CY_CLI=true
 
@@ -18,8 +19,8 @@ if $RUN_NPM_START ; then
 fi
 
 if $RUN_JSON_SERVER ; then
-  npx json-server --watch $JSON_SERVER_DB --port $JSON_SERVER_PORT &
-  npx wait-on -t 300000 http://localhost:$JSON_SERVER_PORT
+  npx json-server-auth --watch $JSON_SERVER_DB -r $JSON_SERVER_ROUTES --port $JSON_SERVER_PORT --delay 1500 &
+  npx wait-on -t 300000 http://localhost:$JSON_SERVER_PORT/users
 fi
 
 headless_flag=''
