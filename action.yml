@@ -21,10 +21,10 @@ inputs:
     default: "3050"
   json-server-db:
     description: "Define json-server db file"
-    default: "server/db.json"
+    default: "db.json"
   json-server-routes:
     description: "Define json-server route file"
-    default: "server/routes.json"
+    default: "routes.json"
 
 outputs:
   result:
