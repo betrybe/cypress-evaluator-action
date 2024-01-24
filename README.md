@@ -46,13 +46,13 @@ This action evaluate Tryber projects with [Cypress](https://www.npmjs.com/packag
 
 - `json-server-db`
 
-  **Default: server/db.json**
+  **Default: db.json**
 
     Define json-server db file.
 
 - `json-server-routes`
 
-  **Default: server/routes.json**
+  **Default: routes.json**
 
     Define json-server routes file.
 
